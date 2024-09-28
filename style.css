@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;500;600&display=swap');
+
+:root {
+    --Moderate-violet: hsl(263, 55%, 52%);
+    --Very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --Very-dark-blackish-blue: hsl(219, 29%, 14%);
+    --Light-gray: hsl(0, 0%, 81%);
+    --Light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--Light-gray);
+    font-family: "Barlow Semi Condensed", sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    font-size: 15px;
+}
+
+.continar {
+    width: 100%;
+    padding-inline: 16px;
+    margin-inline: auto;
+}
+
+@media (min-width: 1000px) {
+    .continar {
+        width: 1100px;
+    }
+}
+
+.items {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "item1 item1 item2 item5"
+        "item3 item4 item4 item5";
+}
+
+.item[data-item="1"] {
+    grid-area: item1;
+    background-color: var(--Moderate-violet);
+    color: white;
+    background-image: url(./images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: top right 10%;
+}
+
+.item[data-item="2"] {
+    grid-area: item2;
+    background-color: var(--Very-dark-grayish-blue);
+    color: white;
+}
+
+.item[data-item="3"] {
+    grid-area: item3;
+    background-color: white;
+    color: var(--Very-dark-grayish-blue);
+}
+
+.item[data-item="4"] {
+    grid-area: item4;
+    background-color: var(--Very-dark-blackish-blue);
+    color: white;
+}
+
+.item[data-item="5"] {
+    grid-area: item5;
+    background-color: white;
+    color: var(--Very-dark-grayish-blue);
+
+}
+
+.item {
+    padding: 15px;
+    background-color: var(--Very-dark-grayish-blue);
+    border-radius: 10px;
+    box-shadow: 19px 19px 30px hsl(217deg 19.81% 77.1%);
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    column-gap: 25px;
+    margin-block-end: 15px;
+}
+
+.head .image {
+    width: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.item[data-item="1"] .image:is(.border) {
+    border: 2px solid hsl(263deg 100% 88.23%);
+}
+
+.image:is(.border) {
+    border: 2px solid var(--Moderate-violet);
+}
+
+.head .image img {
+    width: 100%;
+    height: 100%;
+}
+
+.very {
+    opacity: 50%;
+}
+
+.desc {
+    opacity: 70%;
+}
+
+.info h2 {
+    margin-block-end: 15px;
+}
+
+
+@media (max-width:800px) {
+    .continar {
+        padding-block-start: 15px;
+        padding-block-end: 15px;
+        width: 100%;
+    }
+
+    .items {
+        grid-template-columns: 100%;
+        grid-template-areas: none;
+    }
+
+    .item {
+        grid-area: auto !important;
+    }
+}
